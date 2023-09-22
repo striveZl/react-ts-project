@@ -5,12 +5,15 @@ import App from '@/App';
 import './assets/css/index.less'
 import { HashRouter } from 'react-router-dom';
 import store from './store';
+import { ChakraProvider ,theme} from '@chakra-ui/react'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
     <Provider store={store}>
         <HashRouter>
-            <App />
+            <ChakraProvider theme={theme}>
+                <App />
+            </ChakraProvider>
         </HashRouter>
     </Provider>
 );
