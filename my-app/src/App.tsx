@@ -1,16 +1,7 @@
-import * as React from "react"
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+import * as React from 'react';
+import { ChakraProvider, Box, Text, Link, VStack, Code, Grid, theme } from '@chakra-ui/react';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { Logo } from './Logo';
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -27,12 +18,11 @@ export const App = () => (
             href="https://chakra-ui.com"
             fontSize="2xl"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Learn Chakra
           </Link>
         </VStack>
       </Grid>
     </Box>
   </ChakraProvider>
-)
+);

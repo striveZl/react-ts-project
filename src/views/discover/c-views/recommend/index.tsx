@@ -1,51 +1,42 @@
-import React ,{memo, useEffect, useState}from "react"
-import {FC,ReactNode} from "react"
-import hyRequest from '@/service'
-interface IPorps{
-    children?:ReactNode
+import { memo, useEffect } from 'react';
+import { FC, ReactNode } from 'react';
+import { fetchRankingDataAction, fetchRecommendDataAction } from './store/recommend';
+import { useAppDispatch } from '@/store';
+import TopBanner from './c-cpns/top-banner';
+import { Box } from '@chakra-ui/react';
+import HotRecommend from './c-cpns/hot-recommend';
+import NewAlbum from './c-cpns/new-album';
+import TopRanking from './c-cpns/top-ranking';
+interface IPorps {
+  children?: ReactNode;
 }
+const Reccommend: FC<IPorps> = (props) => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchRecommendDataAction());
+    // dispatch(fetchRankingDataAction());
+  }, [dispatch]);
 
-interface BannerRoot {
-    imageUrl: string
-    targetId: number
-    adid: any
-    targetType: number
-    titleColor: string
-    typeTitle: string
-    url: any
-    exclusive: boolean
-    encodeId: string
-    scm: string
-    bannerBizType: string
-  }
-  
-
-//泛型约束
-const Reccommend:FC<IPorps> = (props)=>{
-    const [bannerLists,setBannerLists] = useState<any[]>([])
-    useEffect(()=>{
-        const banner =async()=>{
-            const bannerList = await hyRequest.get({url:'/banner'})
-            console.log(bannerList)
-            if(bannerList.code ==200){
-                setBannerLists(bannerList.banners)
-                console.log(bannerList.banners)
-            }
-       
-        }
-        banner()
-    },[])
-   
-    
-    return (
-        <>
-           Reccommend
-           {bannerLists&&<div>
-            {bannerLists.map((item,index)=>{
-                return <p key={index}>{item.typeTitle}<br/></p>
-            })}
-            </div>}
-        </>
-    )
-}
-export default memo(Reccommend)
+  return (
+    <>
+      <TopBanner />
+      <Box
+        bg="white"
+        w="1200px"
+        margin="0 auto"
+        display="flex"
+        justifyContent="space-around"
+        border="1px solid rgb(240,240,240)">
+        <Box w="860px" p="20px">
+          <HotRecommend />
+          <NewAlbum />
+          <TopRanking />
+        </Box>
+        <Box w="330px" marginLeft="1px">
+          rigth
+        </Box>
+      </Box>
+    </>
+  );
+};
+export default memo(Reccommend);

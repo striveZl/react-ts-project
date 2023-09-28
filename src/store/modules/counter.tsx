@@ -1,20 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const counterSlice = createSlice({
-    name:'counter',
-    initialState:{
-        count:100,
-        message:"hello",
-        address:'广州',
-        height:1.80
-    },
-    reducers:{
-        changeMessageAction(state,{payload}){
-            state.message = payload
-        }
+  name: 'counter',
+  initialState: {
+    count: 100,
+    message: 'hello',
+    address: '广州',
+    height: 1.8
+  },
+  reducers: {
+    // action的类型解构
+    changeMessageAction(state, { payload }: PayloadAction<string>) {
+      state.message = payload;
     }
-})
+  }
+});
 
-export const {changeMessageAction} = counterSlice.actions
+export const { changeMessageAction } = counterSlice.actions;
 
-export default counterSlice.reducer
+export default counterSlice.reducer;
