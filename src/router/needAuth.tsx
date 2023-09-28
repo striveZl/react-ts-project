@@ -1,7 +1,7 @@
 import { useAppSelector } from "@/store"
 import React ,{memo}from "react"
 import {FC,ReactNode} from "react"
-import {Navigate, useLocation} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 interface IPorps{
     children?:ReactNode
 }

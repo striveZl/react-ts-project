@@ -52,7 +52,6 @@ const AppHeader: FC<IPorps> = (props) => {
   }, [locationUrl.pathname]);
 
   const goDownload = () => {
-    console.log(111);
     navigate('/download', {
       state: {
         name: '传递的数据！'
@@ -60,7 +59,7 @@ const AppHeader: FC<IPorps> = (props) => {
     });
   };
   const loginOut=()=>{
-    console.log(111)
+    console.log("退出登陆！")
   }
   return (
     <HeaderWapper>

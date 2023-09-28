@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { sendRex, touristLoginOne } from '../service';
+import { touristLoginOne } from '../service';
 
-export const fetchSendrexAction = createAsyncThunk(
-  'sendRex',
-  async (phone: string, { dispatch }) => {
-    const res = await sendRex(phone);
+// export const fetchSendrexAction = createAsyncThunk(
+//   'sendRex',
+//   async (phone: string, { dispatch }) => {
+//     const res = await sendRex(phone);
     
     
-  }
-);
+//   }
+// );
 
 export const fetchTouristLoginAction = createAsyncThunk('touristLogin',async(_,{dispatch})=>{
     const res = await touristLoginOne()
