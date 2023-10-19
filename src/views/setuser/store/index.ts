@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { touristLoginOne } from '../service';
+import { getUserInfo, touristLoginOne } from '../service';
 
 // export const fetchSendrexAction = createAsyncThunk(
 //   'sendRex',
@@ -17,12 +17,23 @@ export const fetchTouristLoginAction = createAsyncThunk('touristLogin',async(_,{
     }
 })
 
+//获取用户账号信息
+export const fetchGetUserInfoAction = createAsyncThunk('getUserInfos',async(_,{dispatch})=>{
+    const res = await getUserInfo()
+    if(res.code===200){
+        console.log(res)
+    }
+    console.log(res)
+})
+
 interface setuserState{
-    touristToken:string | null
+    touristToken:string | null,
+    userInfo:object
 }
 
 const initialState:setuserState = {
-    touristToken:localStorage.getItem("token")
+    touristToken:localStorage.getItem("token"),
+    userInfo:{}
 }
 const setuserSlicer = createSlice({
     name:'setuser',
@@ -31,10 +42,13 @@ const setuserSlicer = createSlice({
         getTouristTokenAction(state,{payload}){
             localStorage.setItem("token",payload)
             state.touristToken = payload
+        },
+        getUserInfosAction(state,{payload}){
+            state.userInfo = payload
         }
     }
 })
 
-export const {getTouristTokenAction} = setuserSlicer.actions
+export const {getTouristTokenAction,getUserInfosAction} = setuserSlicer.actions
 
 export default setuserSlicer.reducer

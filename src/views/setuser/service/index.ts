@@ -33,3 +33,17 @@ export const touristLoginOne = ()=>{
         url:'/register/anonimous'
     })
 }
+
+//退出登陆
+export const outLogin = ()=>{
+    return hyRequest.get({
+        url:''
+    })
+}
+
+//获取用户账号信息
+export const getUserInfo = ()=>{
+    return hyRequest.get({
+        url:'/user/account'
+    })
+}
