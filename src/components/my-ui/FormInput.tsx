@@ -32,7 +32,7 @@ const FormInput: FC<IPorps> = ({
 }) => {
   return (
     <Box>
-      <Flex alignItems="center" justifyContent="center">
+      <Flex alignItems="center">
         <Box w="225px" height="24px">
           <Flex>
             <Text color="gray.700" fontSize="16px" fontWeight="500" lineHeight="24px">
@@ -51,10 +51,9 @@ const FormInput: FC<IPorps> = ({
           </Flex>
         </Box>
 
-        <InputGroup marginTop="17px">
+        <InputGroup marginTop="17px" w="520px">
           <FormControl isInvalid={!!errors.name}>
             <Input
-              w="520px"
               h="48px"
               padding="10px 16px"
               alignItems="center"

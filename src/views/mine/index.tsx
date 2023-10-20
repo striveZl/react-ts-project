@@ -15,12 +15,12 @@ const Mine: FC<IPorps> = (props) => {
   return (
     <>
       <InputTest />
-      <HooksBase />
+      {/* <HooksBase /> */}
       <Popover />
       <h2 style={{ color: 'red', fontSize: '18px' }}>HookState</h2>
-      <HooksState />
-      <HooksEffect />
-      <ClassTest />
+      {/* <HooksState /> */}
+      {/* <HooksEffect />
+      <ClassTest /> */}
     </>
   );
 };

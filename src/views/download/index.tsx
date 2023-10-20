@@ -4,6 +4,7 @@ import React, { memo, useState } from 'react';
 import { FC, ReactNode } from 'react';
 import { useTestForm } from '@/hooks/useTestForm';
 import TestUploadImage from '@/components/my-ui/TestUploadImage';
+import TestRadius from '@/components/my-ui/TestRadius';
 interface IPorps {
   children?: ReactNode;
 }
@@ -50,6 +51,7 @@ const Download: FC<IPorps> = (props) => {
           title="昵称"
         />
         <TestUploadImage onChangeImg={changeImg} />
+        <TestRadius isRequired={true}></TestRadius>
         <Button type="submit">提交</Button>
       </form>
     </>
