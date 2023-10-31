@@ -71,7 +71,11 @@ const routes: RouteObject[] = [
   },
   {
     path: '/login',
-    element: <NeedAuth><SetUser /></NeedAuth>
+    element: (
+      <NeedAuth>
+        <SetUser />
+      </NeedAuth>
+    )
   }
 ];
 export default routes;

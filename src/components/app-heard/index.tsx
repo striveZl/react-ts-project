@@ -27,11 +27,12 @@ const AppHeader: FC<IPorps> = (props) => {
   const [tabIndex, setTabIndex] = useState<number>(0);
   const locationUrl = useLocation();
   const navigate = useNavigate();
-  const {touristToken} = useAppSelector((state)=>({
-    touristToken:state.setuser.touristToken
-  }),
-  shallowEqual
-  )
+  const { touristToken } = useAppSelector(
+    (state) => ({
+      touristToken: state.setuser.touristToken
+    }),
+    shallowEqual
+  );
   useEffect(() => {
     switch (locationUrl.pathname) {
       case '/discover/recommend':
@@ -58,9 +59,9 @@ const AppHeader: FC<IPorps> = (props) => {
       }
     });
   };
-  const loginOut=()=>{
-    console.log("退出登陆！")
-  }
+  const loginOut = () => {
+    console.log('退出登陆！');
+  };
   return (
     <HeaderWapper>
       <Flex>
@@ -95,8 +96,16 @@ const AppHeader: FC<IPorps> = (props) => {
             <Input htmlSize={30} width="auto" borderRadius="20px"></Input>
             <Text lineHeight="40px" textAlign="center">
               <span>&nbsp;&nbsp;&nbsp;&nbsp;创作者中心&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            </Text> 
-            {touristToken?<Text onClick={loginOut} cursor="pointer" lineHeight="40px">退出登陆</Text>:<Link to="/login"><Text lineHeight="40px">登陆</Text></Link>}
+            </Text>
+            {touristToken ? (
+              <Text onClick={loginOut} cursor="pointer" lineHeight="40px">
+                退出登陆
+              </Text>
+            ) : (
+              <Link to="/login">
+                <Text lineHeight="40px">登陆</Text>
+              </Link>
+            )}
           </InputGroup>
         </Box>
       </Flex>
