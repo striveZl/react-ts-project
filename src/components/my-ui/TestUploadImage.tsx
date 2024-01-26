@@ -41,7 +41,7 @@ const TestUploadImage: FC<IPorps> = ({ onChangeImg }) => {
         }}
       />
       <Flex minW="745px">
-        <Box w="190px" h="24px">
+        <Box w="225px" h="24px">
           <Text
             color="gray.700"
             fontSize="16px"

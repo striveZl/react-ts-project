@@ -4,12 +4,14 @@ import React, { memo, useState } from 'react';
 import { FC, ReactNode } from 'react';
 import { useTestForm } from '@/hooks/useTestForm';
 import TestUploadImage from '@/components/my-ui/TestUploadImage';
+import TestRadius from '@/components/my-ui/TestRadius';
+import TestSelectBox from '@/components/my-ui/TestSelectBox';
 interface IPorps {
   children?: ReactNode;
 }
 //泛型约束
 const Download: FC<IPorps> = (props) => {
-  const { register, formState, handleSubmit } = useTestForm();
+  const { register, formState, handleSubmit, control } = useTestForm();
   const [file, setFile] = useState<File | null>();
   const submit = (value: any) => {
     const reader = new FileReader();
@@ -49,7 +51,16 @@ const Download: FC<IPorps> = (props) => {
           placeholder="昵称"
           title="昵称"
         />
+        <TestSelectBox
+          control={control}
+          placeholder="选择一下"
+          title="选择一下"
+          name="selectBox"
+          register={register}
+          formState={formState}
+          isRequired={true}></TestSelectBox>
         <TestUploadImage onChangeImg={changeImg} />
+        <TestRadius isRequired={true}></TestRadius>
         <Button type="submit">提交</Button>
       </form>
     </>
